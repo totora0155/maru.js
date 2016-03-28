@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Maru.js</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <button id="open" data-maru-id="foo">foo</button>
+
+  <section id="foo" style="display:none">
+    <h2 id="title">Foo</h2>
+    <div id="body">
+      foofoofoofoofoo
+    </div>
+  </section>
+
+  <script src="dist/maru.js"></script>
+  <script>
+    var foo = new Maru({}).regist({
+      title: {
+        action: 'click',
+        handle: function(e) { console.log('title') },
+      },
+      body: {
+        action: 'click',
+        function(e) { console.log('body') },
+      }
+    });
+
+    var title = document.getElementById('title');
+    var body = document.getElementById('body');
+
+    document.getElementById('open').addEventListener('click', function(e) {
+      foo.show(e);
+    }, false);
+  </script>
+</body>
+</html>

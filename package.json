@@ -1,0 +1,30 @@
+{
+  "name": "maru.js",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/maru.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prestart": "npm run build",
+    "start": "chokidar lib/maru.js -c 'npm run build'",
+    "prepublish": "uglifyjs dist/maru.js -o dist/maru.min.js -cm --comments all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totora0155/maru.js.git"
+  },
+  "keywords": [
+    "fixed"
+  ],
+  "author": "nju33",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/totora0155/maru.js/issues"
+  },
+  "homepage": "https://github.com/totora0155/maru.js#readme",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "rollup": "^0.25.6",
+    "uglify-js": "^2.6.2"
+  }
+}
